@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>راشد قادری | Rashed Qadiri</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Vazirmatn:wght@400;700;900&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background-color: #050505;
+            /* افکت نورهای نئونی پس‌زمینه */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.1), transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1), transparent 30%);
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; color: white; overflow-x: hidden; 
+            padding: 20px 0; position: relative;
+        }
+
+        /* افکت ستاره‌های متحرک */
+        body::before {
+            content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveStars 20s infinite linear; z-index: -1; pointer-events: none;
+        }
+        @keyframes moveStars { 0% { transform: translate(0, 0); } 100% { transform: translate(-50px, -50px); } }
+
+        .container {
+            text-align: center; width: 92%; max-width: 420px;
+            background: rgba(15, 15, 15, 0.85);
+            padding: 30px 20px; border-radius: 24px; 
+            /* حاشیه نئونی */
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(20px); position: relative; overflow: hidden;
+            margin: 20px 0;
+        }
+
+        /* لوگو با قاب نئونی درخشان */
+        .logo-container {
+            width: 130px; height: 130px; margin: 0 auto 20px auto;
+            border-radius: 50%; padding: 3px;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+            animation: pulse-logo 2s infinite alternate;
+        }
+        @keyframes pulse-logo {
+            0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.8); }
+        }
+        .logo-img {
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+            border: 3px solid #050505;
+        }
+
+        /* اسم با فونت سایبری و درخشان */
+        .brand-name { 
+            color: #fff; font-family: 'Orbitron', 'Vazirmatn', sans-serif;
+            font-size: 28px; font-weight: 900; margin-bottom: 5px; 
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; 
+        }
+        .brand-name-en { 
+            color: #ff00ff; font-size: 14px; font-weight: 700; 
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 25px; 
+            text-shadow: 0 0 10px #ff00ff; 
+        }
+
+        /* دکمه‌های خفن نئونی */
+        .btn { 
+            display: flex; align-items: center; justify-content: space-between; 
+            width: 100%; padding: 14px 20px; margin: 12px 0; 
+            border-radius: 12px; font-size: 15px; font-weight: 700; 
+            color: white; text-decoration: none; 
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease; position: relative; overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            cursor: pointer;
+        }
+        
+        /* افکت درخشش روی دکمه‌ها */
+        .btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        .btn:hover::before { left: 100%; }
+        .btn:active { transform: scale(0.96); }
+        
+        .btn-text { display: flex; flex-direction: column; align-items: flex-start; }
+        .btn-text span { font-size: 12px; font-weight: 400; opacity: 0.8; margin-top: 2px; letter-spacing: 1px;}
+        .icon { font-size: 20px; margin-left: 10px; }
+
+        /* رنگ‌های نئونی اختصاصی برای دکمه‌ها */
+        .phone-etisalat { border-color: #00ffff; box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); }
+        .phone-etisalat:hover { background: rgba(0, 255, 255, 0.1); box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+
+        .phone-roshan { border-color: #ff00ff; box-shadow: 0 0 15px rgba(255, 0, 255, 0.2); }
+        .phone-roshan:hover { background: rgba(255, 0, 255, 0.1); box-shadow: 0 0 20px rgba(255, 0, 255, 0.5); }
+
+        .whatsapp { border-color: #25D366; box-shadow: 0 0 15px rgba(37, 211, 102, 0.2); }
+        .whatsapp:hover { background: rgba(37, 211, 102, 0.1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); }
+
+        .telegram { border-color: #0088cc; box-shadow: 0 0 15px rgba(0, 136, 204, 0.2); }
+        .telegram:hover { background: rgba(0, 136, 204, 0.1); box-shadow: 0 0 20px rgba(0, 136, 204, 0.5); }
+
+        .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, #00ffff, #ff00ff, transparent); margin: 20px 0; opacity: 0.5; }
+
+        .footer-text { margin-top: 10px; font-size: 12px; color: #666; line-height: 1.6; font-style: italic; }
+
+        /* پاپ‌آپ کپی */
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(50px); background: #111; color: #00ffff; padding: 10px 20px; border-radius: 30px; font-size: 13px; opacity: 0; transition: all 0.3s; z-index: 1000; border: 1px solid #00ffff; pointer-events: none; box-shadow: 0 0 15px #00ffff; }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        /* دکمه شناور واتساپ */
+        .floating-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 20px #25D366; z-index: 1000; transition: all 0.3s ease; text-decoration: none; }
+        .floating-whatsapp:hover { transform: scale(1.1); }
+        .floating-whatsapp svg { width: 35px; height: 35px; fill: white; }
+    </style>
+</head>
+<body>
+
+<div class="toast" id="toast">کپی شد!</div>
+
+<div class="container">
+    <!-- لوگو با قاب نئونی -->
+    <div class="logo-container">
+        <img src="https://i.postimg.cc/1zGq5Wk7/IMG-2174.jpg" alt="راشد قادری" class="logo-img">
+    </div>
+
+    <!-- اسم با فونت سایبری -->
+    <h1 class="brand-name">راشد قادری</h1>
+    <h2 class="brand-name-en">Rashed Qadiri</h2>
+
+    <div class="divider"></div>
+    
+    <!-- دکمه‌های تماس -->
+    <div class="btn phone-etisalat" onclick="copyNumber('0799469982')">
+        <div class="btn-text">
+            <strong>تماس با اتصالات</strong>
+            <span>079 946 9982</span>
+        </div>
+        <span class="icon">📞</span>
+    </div>
+
+    <div class="btn phone-roshan" onclick="copyNumber('0786696950')">
+        <div class="btn-text">
+            <strong>تماس با روشن</strong>
+            <span>078 669 6950</span>
+        </div>
+        <span class="icon">📞</span>
+    </div>
+
+    <!-- دکمه‌های شبکه‌های اجتماعی -->
+    <div class="btn whatsapp" onclick="openWhatsApp()">
+        <div class="btn-text">
+            <strong>واتساپ (WhatsApp)</strong>
+            <span>078 669 6950</span>
+        </div>
+        <span class="icon">💬</span>
+    </div>
+
+    <div class="btn telegram" onclick="openTelegram()">
+        <div class="btn-text">
+            <strong>تلگرام (Telegram)</strong>
+            <span>@ice_king_1</span>
+        </div>
+        <span class="icon">✈️</span>
+    </div>
+    
+    <p class="footer-text">
+        طراحی شده با ❤️ برای راشد قادری
+    </p>
+</div>
+
+<!-- دکمه شناور واتساپ -->
+<a href="https://wa.me/93786696950" class="floating-whatsapp" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.126-.074-.271-.085-1.616-.622-3.122-2.036-1.378-1.294-1.71-2.286-1.828-2.586-.12-.3-.022-.47.108-.6.118-.118.276-.3.414-.45.138-.15.184-.255.276-.427.092-.172.046-.322-.022-.45-.068-.128-.588-1.418-.806-1.94-.212-.51-.427-.44-.586-.448-.151-.007-.323-.008-.495-.008-.172 0-.451.064-.688.322-.237.258-.903.882-.903 2.15s.924 2.494 1.053 2.666c.129.172 1.82 2.78 4.408 3.9.616.266 1.097.425 1.472.544.618.196 1.18.168 1.625.102.502-.074 1.056-.432 1.205-.848.149-.416.149-.773.104-.848-.045-.075-.168-.12-.351-.21z"/></svg>
+</a>
+
+<script>
+    // کپی کردن شماره
+    function copyNumber(number) {
+        navigator.clipboard.writeText(number).then(() => {
+            showToast('شماره کپی شد!');
+        });
+    }
+
+    // باز کردن واتساپ
+    function openWhatsApp() {
+        window.open('https://wa.me/93786696950?text=سلام راشد جان، از سایتت مزاحم شدم.', '_blank');
+    }
+
+    // باز کردن تلگرام
+    function openTelegram() {
+        window.open('https://t.me/ice_king_1', '_blank');
+    }
+
+    // نمایش پیام کپی
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2000);
+    }
+</script>
+
+</body>
+</html>
